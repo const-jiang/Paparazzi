@@ -11,12 +11,23 @@
 
 #import "UIView+Extension.h"
 #import "NSString+Extension.h"
-
-#define JTRGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#import "UIBarButtonItem+Extension.h"
+#import "UIImage+Extension.h"
 
 
 #define GZLeftMenuW 160
 #define GZLeftMenuH 525
+
+// 颜色
+#define JTColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define JTColorRGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+
+// 随机色
+#define JTRandomColor JTColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+
+
+
+#define GZThemeColor [UIColor colorWithRed:253/255.0 green:223/255.0 blue:16/255.0 alpha:1.0]
 
 
 #endif

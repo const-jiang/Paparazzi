@@ -17,6 +17,15 @@
 		C7A7D8471CACCE45000507E1 /* GZLeftMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7D8461CACCE45000507E1 /* GZLeftMenu.m */; };
 		C7A7D84D1CACCED2000507E1 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7D84A1CACCED2000507E1 /* NSString+Extension.m */; };
 		C7A7D84E1CACCED2000507E1 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7D84C1CACCED2000507E1 /* UIView+Extension.m */; };
+		C7A7D85A1CACE740000507E1 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7D8591CACE740000507E1 /* UIBarButtonItem+Extension.m */; };
+		C7A7E4FB1CAD0653009B5FB3 /* GZTuijianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7E4FA1CAD0653009B5FB3 /* GZTuijianViewController.m */; };
+		C7A7E4FE1CAD06B9009B5FB3 /* GZLengzishiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7E4FD1CAD06B9009B5FB3 /* GZLengzishiViewController.m */; };
+		C7A7E5011CAD06D9009B5FB3 /* GZVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7E5001CAD06D9009B5FB3 /* GZVideoViewController.m */; };
+		C7A7E5041CAD0705009B5FB3 /* GZJiemiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7E5031CAD0705009B5FB3 /* GZJiemiViewController.m */; };
+		C7A7E5071CAD0727009B5FB3 /* GZGaoxiaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7E5061CAD0727009B5FB3 /* GZGaoxiaoViewController.m */; };
+		C7A7E50A1CAD0744009B5FB3 /* GZQiwenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7E5091CAD0744009B5FB3 /* GZQiwenViewController.m */; };
+		C7A7E50E1CAD0D85009B5FB3 /* GZRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7E50D1CAD0D85009B5FB3 /* GZRootViewController.m */; };
+		C7A7E5111CAD11D2009B5FB3 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7E5101CAD11D2009B5FB3 /* UIImage+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +59,24 @@
 		C7A7D84A1CACCED2000507E1 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		C7A7D84B1CACCED2000507E1 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		C7A7D84C1CACCED2000507E1 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		C7A7D8581CACE740000507E1 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		C7A7D8591CACE740000507E1 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		C7A7E4F91CAD0653009B5FB3 /* GZTuijianViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZTuijianViewController.h; sourceTree = "<group>"; };
+		C7A7E4FA1CAD0653009B5FB3 /* GZTuijianViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZTuijianViewController.m; sourceTree = "<group>"; };
+		C7A7E4FC1CAD06B9009B5FB3 /* GZLengzishiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZLengzishiViewController.h; sourceTree = "<group>"; };
+		C7A7E4FD1CAD06B9009B5FB3 /* GZLengzishiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZLengzishiViewController.m; sourceTree = "<group>"; };
+		C7A7E4FF1CAD06D9009B5FB3 /* GZVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZVideoViewController.h; sourceTree = "<group>"; };
+		C7A7E5001CAD06D9009B5FB3 /* GZVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZVideoViewController.m; sourceTree = "<group>"; };
+		C7A7E5021CAD0705009B5FB3 /* GZJiemiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZJiemiViewController.h; sourceTree = "<group>"; };
+		C7A7E5031CAD0705009B5FB3 /* GZJiemiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZJiemiViewController.m; sourceTree = "<group>"; };
+		C7A7E5051CAD0727009B5FB3 /* GZGaoxiaoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZGaoxiaoViewController.h; sourceTree = "<group>"; };
+		C7A7E5061CAD0727009B5FB3 /* GZGaoxiaoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZGaoxiaoViewController.m; sourceTree = "<group>"; };
+		C7A7E5081CAD0744009B5FB3 /* GZQiwenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZQiwenViewController.h; sourceTree = "<group>"; };
+		C7A7E5091CAD0744009B5FB3 /* GZQiwenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZQiwenViewController.m; sourceTree = "<group>"; };
+		C7A7E50C1CAD0D85009B5FB3 /* GZRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZRootViewController.h; sourceTree = "<group>"; };
+		C7A7E50D1CAD0D85009B5FB3 /* GZRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZRootViewController.m; sourceTree = "<group>"; };
+		C7A7E50F1CAD11D2009B5FB3 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		C7A7E5101CAD11D2009B5FB3 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +179,9 @@
 			children = (
 				C7A7D8401CACCCAC000507E1 /* GZMainViewController.h */,
 				C7A7D8411CACCCAC000507E1 /* GZMainViewController.m */,
+				C7A7E50C1CAD0D85009B5FB3 /* GZRootViewController.h */,
+				C7A7E50D1CAD0D85009B5FB3 /* GZRootViewController.m */,
+				C7A7E50B1CAD077C009B5FB3 /* GZRootChild */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -168,6 +198,10 @@
 		C7A7D8481CACCED2000507E1 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				C7A7E50F1CAD11D2009B5FB3 /* UIImage+Extension.h */,
+				C7A7E5101CAD11D2009B5FB3 /* UIImage+Extension.m */,
+				C7A7D8581CACE740000507E1 /* UIBarButtonItem+Extension.h */,
+				C7A7D8591CACE740000507E1 /* UIBarButtonItem+Extension.m */,
 				C7A7D8491CACCED2000507E1 /* NSString+Extension.h */,
 				C7A7D84A1CACCED2000507E1 /* NSString+Extension.m */,
 				C7A7D84B1CACCED2000507E1 /* UIView+Extension.h */,
@@ -175,6 +209,25 @@
 			);
 			name = Category;
 			path = ../Category;
+			sourceTree = "<group>";
+		};
+		C7A7E50B1CAD077C009B5FB3 /* GZRootChild */ = {
+			isa = PBXGroup;
+			children = (
+				C7A7E4F91CAD0653009B5FB3 /* GZTuijianViewController.h */,
+				C7A7E4FA1CAD0653009B5FB3 /* GZTuijianViewController.m */,
+				C7A7E4FC1CAD06B9009B5FB3 /* GZLengzishiViewController.h */,
+				C7A7E4FD1CAD06B9009B5FB3 /* GZLengzishiViewController.m */,
+				C7A7E4FF1CAD06D9009B5FB3 /* GZVideoViewController.h */,
+				C7A7E5001CAD06D9009B5FB3 /* GZVideoViewController.m */,
+				C7A7E5021CAD0705009B5FB3 /* GZJiemiViewController.h */,
+				C7A7E5031CAD0705009B5FB3 /* GZJiemiViewController.m */,
+				C7A7E5051CAD0727009B5FB3 /* GZGaoxiaoViewController.h */,
+				C7A7E5061CAD0727009B5FB3 /* GZGaoxiaoViewController.m */,
+				C7A7E5081CAD0744009B5FB3 /* GZQiwenViewController.h */,
+				C7A7E5091CAD0744009B5FB3 /* GZQiwenViewController.m */,
+			);
+			name = GZRootChild;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,11 +330,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7A7E5111CAD11D2009B5FB3 /* UIImage+Extension.m in Sources */,
+				C7A7E5041CAD0705009B5FB3 /* GZJiemiViewController.m in Sources */,
+				C7A7E5071CAD0727009B5FB3 /* GZGaoxiaoViewController.m in Sources */,
 				C7A7D84E1CACCED2000507E1 /* UIView+Extension.m in Sources */,
 				C7A7D84D1CACCED2000507E1 /* NSString+Extension.m in Sources */,
+				C7A7E4FB1CAD0653009B5FB3 /* GZTuijianViewController.m in Sources */,
 				C7A7D8471CACCE45000507E1 /* GZLeftMenu.m in Sources */,
+				C7A7E4FE1CAD06B9009B5FB3 /* GZLengzishiViewController.m in Sources */,
+				C7A7E5011CAD06D9009B5FB3 /* GZVideoViewController.m in Sources */,
+				C7A7D85A1CACE740000507E1 /* UIBarButtonItem+Extension.m in Sources */,
 				C7A7D83E1CACCC32000507E1 /* main.m in Sources */,
 				C7A7D83C1CACCC32000507E1 /* AppDelegate.m in Sources */,
+				C7A7E50A1CAD0744009B5FB3 /* GZQiwenViewController.m in Sources */,
+				C7A7E50E1CAD0D85009B5FB3 /* GZRootViewController.m in Sources */,
 				C7A7D8421CACCCAC000507E1 /* GZMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,6 +539,7 @@
 				C7A7D82E1CACC8AA000507E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C7A7D82F1CACC8AA000507E1 /* Build configuration list for PBXNativeTarget "PaparazziTests" */ = {
 			isa = XCConfigurationList;
@@ -485,6 +548,7 @@
 				C7A7D8311CACC8AA000507E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

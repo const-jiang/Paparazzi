@@ -15,7 +15,6 @@
     attrs[NSFontAttributeName] = font;
     CGSize maxSize = CGSizeMake(maxW, MAXFLOAT);
     
-    // 获得系统版本
     if ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0) {
         return [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
     } else {

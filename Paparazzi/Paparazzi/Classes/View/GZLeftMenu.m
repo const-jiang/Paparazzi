@@ -38,14 +38,14 @@
         UILabel *label = [[UILabel alloc] init];
         label.text = @"V1.1.0";
         label.font = [UIFont systemFontOfSize:13];
-        label.textColor = JTRGBColor(168, 162, 101);
+        label.textColor = JTColor(168, 162, 101);
         label.x = dogTitle.x + 2;
         label.y = CGRectGetMaxY(dogTitle.frame) + 7;
         label.size = [label.text sizeWithFont:label.font];
         [self addSubview:label];
         
         UIView *line = [[UIView alloc] init];
-        line.backgroundColor = JTRGBColor(236, 209, 37);
+        line.backgroundColor = JTColor(236, 209, 37);
         line.x = 0;
         line.y = CGRectGetMaxY(dogLogo.frame);
         line.width = GZLeftMenuW;
@@ -119,7 +119,7 @@
         [button setImage:image forState:UIControlStateHighlighted];
         button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [button setTitle:@"我的收藏" forState:UIControlStateNormal];
-        [button setTitleColor:JTRGBColor(124, 124, 124) forState:UIControlStateNormal];
+        [button setTitleColor:JTColor(124, 124, 124) forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont systemFontOfSize:17];
         button.titleEdgeInsets = UIEdgeInsetsMake(0, 7, 0, 0);
         button.x = 0;
@@ -129,7 +129,7 @@
         [self addSubview:button];
    
         line = [[UIView alloc] init];
-        line.backgroundColor = JTRGBColor(236, 209, 37);
+        line.backgroundColor = JTColor(236, 209, 37);
         line.x = 0;
         line.y = button.y;
         line.width = GZLeftMenuW;
@@ -137,7 +137,7 @@
         [self addSubview:line];
    
         line = [[UIView alloc] init];
-        line.backgroundColor = JTRGBColor(236, 209, 37);
+        line.backgroundColor = JTColor(236, 209, 37);
         line.x = 0;
         line.y = CGRectGetMaxY(button.frame);
         line.width = GZLeftMenuW;
@@ -157,13 +157,13 @@
     button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     
     NSDictionary *dic = @{NSFontAttributeName: [UIFont systemFontOfSize:18],
-                          NSForegroundColorAttributeName:JTRGBColor(65, 65, 65)
+                          NSForegroundColorAttributeName:JTColor(65, 65, 65)
                           };
     NSAttributedString *attr = [[NSAttributedString alloc] initWithString:title attributes:dic];
     [button setAttributedTitle:attr forState:UIControlStateNormal];
     
     dic = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18],
-            NSForegroundColorAttributeName:JTRGBColor(4, 4, 4)
+            NSForegroundColorAttributeName:JTColor(4, 4, 4)
             };
     attr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@＞",title] attributes:dic];
     [button setAttributedTitle:attr forState:UIControlStateSelected];
