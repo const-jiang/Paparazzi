@@ -14,6 +14,9 @@
 		C7A7D83C1CACCC32000507E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7D8381CACCC32000507E1 /* AppDelegate.m */; };
 		C7A7D83E1CACCC32000507E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7D83B1CACCC32000507E1 /* main.m */; };
 		C7A7D8421CACCCAC000507E1 /* GZMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7D8411CACCCAC000507E1 /* GZMainViewController.m */; };
+		C7A7D8471CACCE45000507E1 /* GZLeftMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7D8461CACCE45000507E1 /* GZLeftMenu.m */; };
+		C7A7D84D1CACCED2000507E1 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7D84A1CACCED2000507E1 /* NSString+Extension.m */; };
+		C7A7D84E1CACCED2000507E1 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7D84C1CACCED2000507E1 /* UIView+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +44,12 @@
 		C7A7D8401CACCCAC000507E1 /* GZMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMainViewController.h; sourceTree = "<group>"; };
 		C7A7D8411CACCCAC000507E1 /* GZMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMainViewController.m; sourceTree = "<group>"; };
 		C7A7D8431CACCCE9000507E1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		C7A7D8451CACCE45000507E1 /* GZLeftMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZLeftMenu.h; sourceTree = "<group>"; };
+		C7A7D8461CACCE45000507E1 /* GZLeftMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZLeftMenu.m; sourceTree = "<group>"; };
+		C7A7D8491CACCED2000507E1 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		C7A7D84A1CACCED2000507E1 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		C7A7D84B1CACCED2000507E1 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		C7A7D84C1CACCED2000507E1 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				C7A7D83F1CACCCAC000507E1 /* Controller */,
+				C7A7D8441CACCE24000507E1 /* View */,
 				C7A7D8361CACCC32000507E1 /* Other */,
 			);
 			path = Classes;
@@ -128,6 +138,7 @@
 		C7A7D8361CACCC32000507E1 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				C7A7D8481CACCED2000507E1 /* Category */,
 				C7A7D8371CACCC32000507E1 /* AppDelegate.h */,
 				C7A7D8381CACCC32000507E1 /* AppDelegate.m */,
 				C7A7D83B1CACCC32000507E1 /* main.m */,
@@ -143,6 +154,27 @@
 				C7A7D8411CACCCAC000507E1 /* GZMainViewController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		C7A7D8441CACCE24000507E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C7A7D8451CACCE45000507E1 /* GZLeftMenu.h */,
+				C7A7D8461CACCE45000507E1 /* GZLeftMenu.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C7A7D8481CACCED2000507E1 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				C7A7D8491CACCED2000507E1 /* NSString+Extension.h */,
+				C7A7D84A1CACCED2000507E1 /* NSString+Extension.m */,
+				C7A7D84B1CACCED2000507E1 /* UIView+Extension.h */,
+				C7A7D84C1CACCED2000507E1 /* UIView+Extension.m */,
+			);
+			name = Category;
+			path = ../Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +277,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7A7D84E1CACCED2000507E1 /* UIView+Extension.m in Sources */,
+				C7A7D84D1CACCED2000507E1 /* NSString+Extension.m in Sources */,
+				C7A7D8471CACCE45000507E1 /* GZLeftMenu.m in Sources */,
 				C7A7D83E1CACCC32000507E1 /* main.m in Sources */,
 				C7A7D83C1CACCC32000507E1 /* AppDelegate.m in Sources */,
 				C7A7D8421CACCCAC000507E1 /* GZMainViewController.m in Sources */,

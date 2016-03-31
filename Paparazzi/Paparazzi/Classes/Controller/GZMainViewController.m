@@ -7,8 +7,9 @@
 //
 
 #import "GZMainViewController.h"
+#import "GZLeftMenu.h"
 
-@interface GZMainViewController ()
+@interface GZMainViewController ()<GZLeftMenuDelegate>
 
 @end
 
@@ -16,22 +17,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = [UIColor colorWithRed:253/255.0 green:223/255.0 blue:16/255.0 alpha:1.0];
+    
+    
+    GZLeftMenu *menu = [[GZLeftMenu alloc] init];
+    menu.x = 30;
+    menu.y = 60;
+    menu.width = GZLeftMenuW;
+    menu.height = GZLeftMenuH;
+    
+    menu.delegate = self;
+    
+    [self.view addSubview:menu];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)leftMenu:(GZLeftMenu *)menu didSelectedButtonFromIndex:(int)fromIndex toIndex:(int)toIndex
+{
+    NSLog(@"fromIndex:%d  toIndex:%d",fromIndex,toIndex);
 }
-*/
 
 @end

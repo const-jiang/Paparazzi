@@ -9,6 +9,14 @@
 #ifndef Paparazzi_PrefixHeader_pch
 #define Paparazzi_PrefixHeader_pch
 
+#import "UIView+Extension.h"
+#import "NSString+Extension.h"
+
+#define JTRGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+
+#define GZLeftMenuW 160
+#define GZLeftMenuH 525
 
 
 #endif
