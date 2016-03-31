@@ -1,0 +1,14 @@
+//
+//  PrefixHeader.pch
+//  Paparazzi
+//
+//  Created by jiangtian on 16-3-31.
+//  Copyright (c) 2016年 jiangtian. All rights reserved.
+//
+
+#ifndef Paparazzi_PrefixHeader_pch
+#define Paparazzi_PrefixHeader_pch
+
+
+
+#endif
