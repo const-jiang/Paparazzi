@@ -24,6 +24,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UINavigationBar *appearance = [UINavigationBar appearance];
+    
+    //    [appearance setBackgroundColor:GZThemeColor];
+    [appearance setBackgroundImage:[UIImage imageWithColor:GZThemeColor] forBarMetrics:UIBarMetricsDefault];
+
+    
     self.view.backgroundColor = GZThemeColor;
     
     GZRootViewController *vc = nil;
@@ -44,8 +50,8 @@
     
     vc = [[GZQiwenViewController alloc] init];
     [self addChildViewController:[[UINavigationController alloc] initWithRootViewController:vc]];
-    
-    // menu.delegate的设置需在addChildViewController之后，否则会引起数组越界错误
+
+       // menu.delegate的设置需在addChildViewController之后，否则会引起数组越界错误
     GZLeftMenu *menu = [[GZLeftMenu alloc] init];
     menu.x = 30;
     menu.y = 60;

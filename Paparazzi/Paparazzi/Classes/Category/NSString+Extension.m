@@ -27,4 +27,25 @@
     return [self sizeWithFont:font maxW:MAXFLOAT];
 }
 
+/**
+ 截取 fromString 与 toString 之间的部分；
+ 如果toString为nil或toString没有找到，截取fromString之后的部分
+ */
+- (NSString *)substringFromSting:(NSString *)fromString toString:(NSString *)toString
+{
+    NSRange range = [self rangeOfString:fromString];
+    NSString *subString = [self substringFromIndex:range.location + range.length ];
+    
+    if (toString == nil) {
+        return subString;
+    }
+    
+    range = [subString rangeOfString:toString];
+    if (range.length) {
+        return [subString substringToIndex:range.location];
+    }
+    else{
+        return subString;
+    }
+}
 @end
