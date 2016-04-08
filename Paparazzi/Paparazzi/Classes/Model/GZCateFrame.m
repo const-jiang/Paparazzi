@@ -12,6 +12,12 @@
 #import "GZCateInfo.h"
 #import "NSString+Extension.h"
 
+// cell的边框宽度
+#define GZCateCellBorderW 10
+//图片的最大高度
+#define GZCateCellPictureMaxH  1000
+#define GZCateCellPictureBreakH  300
+
 @implementation GZCateFrame
 
 - (void)setCate:(GZCate *)cate

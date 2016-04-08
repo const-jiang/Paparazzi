@@ -34,7 +34,6 @@
 
 @property (nonatomic,strong) GZWebViewController *webViewController;
 
-
 @end
 
 @implementation GZRootViewController
@@ -69,7 +68,6 @@
     
     [super viewDidLoad];
     
-//    self.tableView.backgroundColor = JTRandomColor;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"fenlei" target:self action:@selector(leftMenu)];
@@ -362,7 +360,7 @@
         
         // 菜单左边的间距
         CGFloat leftMenuMargin = [UIScreen mainScreen].bounds.size.width * (1 - scale) * 0.5;
-        CGFloat translateX = 200 - leftMenuMargin;
+        CGFloat translateX = 230 - leftMenuMargin;
         
         CGFloat topMargin = [UIScreen mainScreen].bounds.size.height * (1 - scale) * 0.5;
         CGFloat translateY = topMargin - 60;
@@ -371,7 +369,7 @@
         CGAffineTransform scaleForm = CGAffineTransformMakeScale(scale, scale);
         // 平移
         CGAffineTransform translateForm = CGAffineTransformTranslate(scaleForm, translateX / scale, -translateY / scale);
-        
+       
         navView.transform = translateForm;
         
         // 添加遮盖

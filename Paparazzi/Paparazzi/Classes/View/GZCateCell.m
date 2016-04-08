@@ -17,6 +17,7 @@
 #import "GZCatePictureView.h"
 #import "GZCateVideoView.h"
 
+#define GZCateCellContentFontColor [UIColor colorWithRed:98/255.0 green:98/255.0 blue:98/255.0 alpha:1.0]
 
 @interface GZCateCell()
 

@@ -15,11 +15,12 @@
 @implementation GZTuijianViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+     [super viewDidLoad];
     
     UIImage *image = [UIImage imageNamed:@"tuijian"];
     UIImageView *titleView = [[UIImageView alloc] initWithImage:image];
     self.navigationItem.titleView = titleView;
+    
 }
 
 - (NSDictionary *)requestParams
