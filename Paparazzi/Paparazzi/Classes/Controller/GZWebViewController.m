@@ -40,7 +40,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // 170 
     self.view.backgroundColor = JTColor(165, 165, 165);
     
     UIWebView *webView = [[UIWebView alloc] init];
@@ -62,6 +61,15 @@
     [self.view addSubview:backButton];
     self.backButton = backButton;
     [backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.webView.backgroundColor = [UIColor whiteColor];
+    
+    
+    self.navigationController.navigationBarHidden = YES;
+    if (self.url) {
+        [self loadURL:self.url];
+    }
+    
 }
 
 - (void)loadURL:(NSString *)url
@@ -74,12 +82,11 @@
 
 -(void)back:(UIButton *)button
 {
-    
-    if ([self.webView  canGoBack]) {
+     if ([self.webView  canGoBack]) {
         [self.webView goBack];
     }else{
-        [self dismissViewControllerAnimated:YES completion:^{
-        }];
+        [self.navigationController popViewControllerAnimated:YES];
+         self.navigationController.navigationBarHidden = NO;
     }
     
 }

@@ -14,6 +14,7 @@
 #import "GZJiemiViewController.h"
 #import "GZGaoxiaoViewController.h"
 #import "GZQiwenViewController.h"
+#import "KKNavigationController.h"
 
 @interface GZMainViewController ()<GZLeftMenuDelegate>
 
@@ -34,22 +35,22 @@
     
     GZRootViewController *vc = nil;
     vc = [[GZTuijianViewController alloc] init];
-    [self addChildViewController:[[UINavigationController alloc] initWithRootViewController:vc]];
+    [self addChildViewController:[[KKNavigationController alloc] initWithRootViewController:vc]];
     
     vc = [[GZLengzishiViewController alloc] init];
-    [self addChildViewController:[[UINavigationController alloc] initWithRootViewController:vc]];
+    [self addChildViewController:[[KKNavigationController alloc] initWithRootViewController:vc]];
     
     vc = [[GZVideoViewController alloc] init];
-    [self addChildViewController:[[UINavigationController alloc] initWithRootViewController:vc]];
+    [self addChildViewController:[[KKNavigationController alloc] initWithRootViewController:vc]];
     
     vc = [[GZJiemiViewController alloc] init];
-    [self addChildViewController:[[UINavigationController alloc] initWithRootViewController:vc]];
+    [self addChildViewController:[[KKNavigationController alloc] initWithRootViewController:vc]];
     
     vc = [[GZGaoxiaoViewController alloc] init];
-    [self addChildViewController:[[UINavigationController alloc] initWithRootViewController:vc]];
+    [self addChildViewController:[[KKNavigationController alloc] initWithRootViewController:vc]];
     
     vc = [[GZQiwenViewController alloc] init];
-    [self addChildViewController:[[UINavigationController alloc] initWithRootViewController:vc]];
+    [self addChildViewController:[[KKNavigationController alloc] initWithRootViewController:vc]];
 
        // menu.delegate的设置需在addChildViewController之后，否则会引起数组越界错误
     GZLeftMenu *menu = [[GZLeftMenu alloc] init];

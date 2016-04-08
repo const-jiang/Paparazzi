@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7A713221CB7BD490048FE1A /* KKNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A713211CB7BD490048FE1A /* KKNavigationController.m */; };
 		C7A7D8181CACC8AA000507E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A7D8161CACC8AA000507E1 /* Main.storyboard */; };
 		C7A7D81A1CACC8AA000507E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A7D8191CACC8AA000507E1 /* Images.xcassets */; };
 		C7A7D81D1CACC8AA000507E1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A7D81B1CACC8AA000507E1 /* LaunchScreen.xib */; };
@@ -104,6 +105,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C7A713201CB7BD490048FE1A /* KKNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKNavigationController.h; sourceTree = "<group>"; };
+		C7A713211CB7BD490048FE1A /* KKNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKNavigationController.m; sourceTree = "<group>"; };
 		C7A7D8091CACC8AA000507E1 /* Paparazzi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paparazzi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A7D80D1CACC8AA000507E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7A7D8171CACC8AA000507E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -374,6 +377,8 @@
 		C7A7D83F1CACCCAC000507E1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C7A713201CB7BD490048FE1A /* KKNavigationController.h */,
+				C7A713211CB7BD490048FE1A /* KKNavigationController.m */,
 				C7A7D8401CACCCAC000507E1 /* GZMainViewController.h */,
 				C7A7D8411CACCCAC000507E1 /* GZMainViewController.m */,
 				C7A7E50C1CAD0D85009B5FB3 /* GZRootViewController.h */,
@@ -777,6 +782,7 @@
 				C7A7E5BE1CAD1DC8009B5FB3 /* DALabeledCircularProgressView.m in Sources */,
 				C7A7E5AF1CAD1DC8009B5FB3 /* README.md in Sources */,
 				C7A7E5B81CAD1DC8009B5FB3 /* NSString+Extension.m in Sources */,
+				C7A713221CB7BD490048FE1A /* KKNavigationController.m in Sources */,
 				C7A7E5AD1CAD1DC8009B5FB3 /* AFURLSessionManager.m in Sources */,
 				C7A7E5B21CAD1DC8009B5FB3 /* UIAlertView+AFNetworking.m in Sources */,
 				C7A7E5DB1CAD1DC8009B5FB3 /* UIImageView+WebCache.m in Sources */,

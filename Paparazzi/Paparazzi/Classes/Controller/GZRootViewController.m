@@ -179,22 +179,12 @@
         _fmVideoPlayer = nil;
     }
     
-    
-#warning 这样写存在bug,看看怎么解决
-    //如果webViewController 并不是用到时就创建一个新的时，会出现bug，具体现象就是，点击cell后webView会显示上一次的内容，然后加载新的内容
-    //    GZCateFrame *frame = self.cateFrames[indexPath.row];
-    //    [self presentViewController:self.webViewController animated:YES completion:^{
-    //        [self.webViewController loadURL:frame.cate.detail_url];
-    //    }];
-    
-    
     GZCateFrame *frame = self.cateFrames[indexPath.row];
+    
     GZWebViewController *webViewController = [[GZWebViewController alloc] init];
-    
-    [self presentViewController:webViewController animated:YES completion:^{
-        [webViewController loadURL:frame.cate.detail_url];
-    }];
-    
+    webViewController.url = frame.cate.detail_url;
+    [self.navigationController pushViewController:webViewController animated:YES];
+  
 }
 
 

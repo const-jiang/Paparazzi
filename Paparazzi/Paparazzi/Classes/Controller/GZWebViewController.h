@@ -13,6 +13,6 @@
 //看看是否需要用单例模式
 //+ (instancetype)shareWebViewController;
 
-- (void)loadURL:(NSString *)url;
+@property (nonatomic,strong) NSString *url;
 
 @end
