@@ -11,7 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <math.h>
 
-@interface KKNavigationController ()
+@interface KKNavigationController () <UIGestureRecognizerDelegate>
 {
     CGPoint startTouch;
     
@@ -53,13 +53,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UIImageView *shadowImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"leftside_shadow_bg"]];
-    shadowImageView.frame = CGRectMake(-10, 0, 10, self.view.frame.size.height);
-    [self.view addSubview:shadowImageView];
-    
-    UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self
-                                                                                action:@selector(paningGestureReceive:)];
+
+    UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(paningGestureReceive:)];
     [recognizer setDelegate:self];
     [recognizer delaysTouchesBegan];
     [self.view addGestureRecognizer:recognizer];
@@ -167,10 +162,10 @@
         {
             CGRect frame = self.view.frame;
             
-            self.backgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width , frame.size.height)];
+            self.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width , frame.size.height)];
             [self.view.superview insertSubview:self.backgroundView belowSubview:self.view];
             
-            blackMask = [[UIView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width , frame.size.height)];
+            blackMask = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width , frame.size.height)];
             blackMask.backgroundColor = [UIColor blackColor];
             [self.backgroundView addSubview:blackMask];
         }
@@ -182,7 +177,7 @@
         
         UIImage *lastScreenShot = [self.screenShotsList lastObject];
         
-        lastScreenShotView = [[UIImageView alloc]initWithImage:lastScreenShot];
+        lastScreenShotView = [[UIImageView alloc] initWithImage:lastScreenShot];
         
         startBackViewX = startX;
         [lastScreenShotView setFrame:CGRectMake(startBackViewX,
@@ -237,9 +232,8 @@
             CGRect frame = self.view.frame;
             frame.origin.x = 0;
             self.view.frame = frame;
-        } else {
-            self.backgroundView.hidden = YES;
         }
+        self.backgroundView.hidden = YES;
     };
     [UIView animateWithDuration:duration animations:^{
         [self moveViewWithX:finishPop ? navigationWidth : 0];

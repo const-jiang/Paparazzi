@@ -64,8 +64,6 @@
     
     self.webView.backgroundColor = [UIColor whiteColor];
     
-    
-    self.navigationController.navigationBarHidden = YES;
     if (self.url) {
         [self loadURL:self.url];
     }
@@ -86,9 +84,18 @@
         [self.webView goBack];
     }else{
         [self.navigationController popViewControllerAnimated:YES];
-         self.navigationController.navigationBarHidden = NO;
     }
-    
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBarHidden = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    self.navigationController.navigationBarHidden = NO;
 }
 
 
