@@ -11,6 +11,7 @@
 #import "UIView+Extension.h"
 #import "GZCateFrame.h"
 #import "AFNetworking.h"
+#import "GZShareViewController.h"
 
 @interface GZCateToolBar()
 @property (nonatomic, weak) UIButton *agreeBtn;
@@ -114,7 +115,7 @@
 
 - (void)shareButtonClick:(UIButton *)button
 {
-    
+   [[GZShareViewController sharedViewController] show];
 }
 
 

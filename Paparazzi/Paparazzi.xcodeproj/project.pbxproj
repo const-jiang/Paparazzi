@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C7A713221CB7BD490048FE1A /* KKNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A713211CB7BD490048FE1A /* KKNavigationController.m */; };
+		C7A7650C1CBA0A0800899166 /* GZShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7650B1CBA0A0800899166 /* GZShareViewController.m */; };
+		C7A7650F1CBA0BDE00899166 /* JTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7650E1CBA0BDE00899166 /* JTButton.m */; };
 		C7A7D8181CACC8AA000507E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A7D8161CACC8AA000507E1 /* Main.storyboard */; };
 		C7A7D81A1CACC8AA000507E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A7D8191CACC8AA000507E1 /* Images.xcassets */; };
 		C7A7D81D1CACC8AA000507E1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A7D81B1CACC8AA000507E1 /* LaunchScreen.xib */; };
@@ -107,6 +109,10 @@
 /* Begin PBXFileReference section */
 		C7A713201CB7BD490048FE1A /* KKNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKNavigationController.h; sourceTree = "<group>"; };
 		C7A713211CB7BD490048FE1A /* KKNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKNavigationController.m; sourceTree = "<group>"; };
+		C7A7650A1CBA0A0800899166 /* GZShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZShareViewController.h; sourceTree = "<group>"; };
+		C7A7650B1CBA0A0800899166 /* GZShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZShareViewController.m; sourceTree = "<group>"; };
+		C7A7650D1CBA0BDE00899166 /* JTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTButton.h; sourceTree = "<group>"; };
+		C7A7650E1CBA0BDE00899166 /* JTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTButton.m; sourceTree = "<group>"; };
 		C7A7D8091CACC8AA000507E1 /* Paparazzi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paparazzi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A7D80D1CACC8AA000507E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7A7D8171CACC8AA000507E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -386,6 +392,8 @@
 				C7A7E50B1CAD077C009B5FB3 /* GZRootChild */,
 				C7A7E5DD1CAD1E02009B5FB3 /* GZWebViewController.h */,
 				C7A7E5DE1CAD1E02009B5FB3 /* GZWebViewController.m */,
+				C7A7650A1CBA0A0800899166 /* GZShareViewController.h */,
+				C7A7650B1CBA0A0800899166 /* GZShareViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -403,6 +411,8 @@
 				C7A7E5241CAD1DB6009B5FB3 /* GZCateToolBar.m */,
 				C7A7E5251CAD1DB6009B5FB3 /* GZCateVideoView.h */,
 				C7A7E5261CAD1DB6009B5FB3 /* GZCateVideoView.m */,
+				C7A7650D1CBA0BDE00899166 /* JTButton.h */,
+				C7A7650E1CBA0BDE00899166 /* JTButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -782,10 +792,12 @@
 				C7A7E5BE1CAD1DC8009B5FB3 /* DALabeledCircularProgressView.m in Sources */,
 				C7A7E5AF1CAD1DC8009B5FB3 /* README.md in Sources */,
 				C7A7E5B81CAD1DC8009B5FB3 /* NSString+Extension.m in Sources */,
+				C7A7650F1CBA0BDE00899166 /* JTButton.m in Sources */,
 				C7A713221CB7BD490048FE1A /* KKNavigationController.m in Sources */,
 				C7A7E5AD1CAD1DC8009B5FB3 /* AFURLSessionManager.m in Sources */,
 				C7A7E5B21CAD1DC8009B5FB3 /* UIAlertView+AFNetworking.m in Sources */,
 				C7A7E5DB1CAD1DC8009B5FB3 /* UIImageView+WebCache.m in Sources */,
+				C7A7650C1CBA0A0800899166 /* GZShareViewController.m in Sources */,
 				C7A7D84E1CACCED2000507E1 /* UIView+Extension.m in Sources */,
 				C7A7D84D1CACCED2000507E1 /* NSString+Extension.m in Sources */,
 				C7A7E4FB1CAD0653009B5FB3 /* GZTuijianViewController.m in Sources */,
