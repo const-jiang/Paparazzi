@@ -17,6 +17,7 @@
 #import "AFNetworking.h"
 #import "GZWebViewController.h"
 #import "MJRefresh.h"
+#import "GZTool.h"
 
 #define GZNavShowAnimDuration 0.25
 #define GZCoverTag 100
@@ -256,89 +257,31 @@
     GZCateCell *cell = (GZCateCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     if (cell) {
         NSString *videoURL =  cateFrame.cate.video_url;
-        AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-        mgr.responseSerializer = [AFHTTPResponseSerializer serializer];
-        
-        NSDictionary *jsonDic = @{
-                                  @"appendix" : @{
-                                          @"site" : @"",
-                                          @"nextStep" : @""
-                                          },
-                                  @"cmd_results" : @[
-                                          @""
-                                          ],
-                                  @"mobileInfo" : @{
-                                          @"manufacturer" : @"apple",
-                                          @"model" : @"iPhone",
-                                          @"systemver" : @"9.2.1",
-                                          @"type" : @"ios",
-                                          @"appver" : @"4"
-                                          },
-                                  @"resource" : @{
-                                          @"url" : videoURL,
-                                          @"mplay_link" : @"",
-                                          @"cookie" : @""
-                                          }
-                                  };
-        
-        NSString *jsonStr = [self dataToJsonString:jsonDic];
-        
-        // 设置请求参数
-        NSMutableDictionary *params = [NSMutableDictionary dictionary];
-        params[@"data"] = jsonStr;
-        
-        NSString *url = @"http://v.sogou.com/playservice/";
-        [mgr POST:url parameters:params
-          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-              NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
-              
-              NSArray *result_data =  dict[@"result_data"];
-              if (result_data.count) {
-                  
-                  NSString *urlString =  result_data[0][@"videos"][0];
-                  
-                  if (_fmVideoPlayer) {
-                      [_fmVideoPlayer.player pause];
-                      [_fmVideoPlayer removeFromSuperview];
-                      _fmVideoPlayer = nil;
-                  }
-                  
-                  _fmVideoPlayer = [FMGVideoPlayView videoPlayView];
-                  _fmVideoPlayer.delegate = self;
-                  
-                  _fmVideoPlayer.index = index;
-                  [_fmVideoPlayer setUrlString:urlString];
-                  _fmVideoPlayer.frame = cateFrame.videoViewF;
-                  [cell.contentView addSubview:_fmVideoPlayer];
-                  
-                  [_fmVideoPlayer.player play];
-                  [_fmVideoPlayer showToolView:NO];
-                  _fmVideoPlayer.playOrPauseBtn.selected = YES;
-              }
-
-              
-          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              NSLog(@"请求失败:%@",error);
-          }];
-        
+        [GZTool parseVideoURL:videoURL success:^(NSString *url) {
+            
+            if (_fmVideoPlayer) {
+                [_fmVideoPlayer.player pause];
+                [_fmVideoPlayer removeFromSuperview];
+                _fmVideoPlayer = nil;
+            }
+            
+            _fmVideoPlayer = [FMGVideoPlayView videoPlayView];
+            _fmVideoPlayer.delegate = self;
+            
+            _fmVideoPlayer.index = index;
+            [_fmVideoPlayer setUrlString:url];
+            _fmVideoPlayer.frame = cateFrame.videoViewF;
+            [cell.contentView addSubview:_fmVideoPlayer];
+            
+            [_fmVideoPlayer.player play];
+            [_fmVideoPlayer showToolView:NO];
+            _fmVideoPlayer.playOrPauseBtn.selected = YES;
+            
+        } failure:^(NSError *error) {
+            NSLog(@"请求失败:%@",error);
+        }];
     }
    
-}
-
-
--(NSString*)dataToJsonString:(id)object
-{
-    NSString *jsonString = nil;
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object
-                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-                                                         error:&error];
-    if (! jsonData) {
-        NSLog(@"Got an error: %@", error);
-    } else {
-        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    }
-    return jsonString;
 }
 
 - (void)videoplayViewSwitchOrientation:(BOOL)isFull{

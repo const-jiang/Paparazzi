@@ -60,7 +60,7 @@
     menu.height = GZLeftMenuH;
     menu.delegate = self;
     [self.view insertSubview:menu atIndex:1];
-
+    
 }
 
 

@@ -12,6 +12,7 @@
 #import "FMGVideoPlayView.h"
 #import "FullViewController.h"
 #import "GZCate.h"
+#import "GZTool.h"
 
 @interface GZWebViewController () <UIWebViewDelegate, UISearchBarDelegate,FMGVideoPlayViewDelegate>
 
@@ -194,72 +195,33 @@
 
 - (void)playVideoWithURL:(NSString *)video_url
 {
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    mgr.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
-    NSDictionary *jsonDic = @{
-                              @"appendix" : @{
-                                      @"site" : @"",
-                                      @"nextStep" : @""
-                                      },
-                              @"cmd_results" : @[
-                                      @""
-                                      ],
-                              @"mobileInfo" : @{
-                                      @"manufacturer" : @"apple",
-                                      @"model" : @"iPhone",
-                                      @"systemver" : @"9.2.1",
-                                      @"type" : @"ios",
-                                      @"appver" : @"4"
-                                      },
-                              @"resource" : @{
-                                      @"url" : video_url,
-                                      @"mplay_link" : @"",
-                                      @"cookie" : @""
-                                      }
-                              };
-    
-    NSString *jsonStr = [self dataToJsonString:jsonDic];
-    
-    // 设置请求参数
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"data"] = jsonStr;
-    
-    NSString *url = @"http://v.sogou.com/playservice/";
-    [mgr POST:url parameters:params
-      success:^(AFHTTPRequestOperation *operation, id responseObject) {
-          NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
-          
-          NSArray *result_data =  dict[@"result_data"];
-          if (result_data.count) {
-              
-              NSString *urlString =  result_data[0][@"videos"][0];
-              
-              _fmVideoPlayer = [FMGVideoPlayView videoPlayView];
-              _fmVideoPlayer.delegate = self;
-              
-              [_fmVideoPlayer setUrlString:urlString];
-              
-              [_fmVideoPlayer.player play];
-              [_fmVideoPlayer showToolView:NO];
-              _fmVideoPlayer.playOrPauseBtn.selected = YES;
-              //解决全屏播放时，点击两次才能退出的问题
-              _fmVideoPlayer.switchOrientationBut.selected = YES;
-              
-              [self presentViewController:self.fullVc animated:NO completion:^{
-                  [self.fullVc.view addSubview:self.fmVideoPlayer];
-                  _fmVideoPlayer.center = self.fullVc.view.center;
-                  
-                  [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionLayoutSubviews animations:^{
-                      _fmVideoPlayer.frame = self.fullVc.view.bounds;
-                      
-                  } completion:nil];
-              }];
-          }
-    
-      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-          NSLog(@"请求失败:%@",error);
-      }];
+    [GZTool parseVideoURL:video_url success:^(NSString *url) {
+        
+        _fmVideoPlayer = [FMGVideoPlayView videoPlayView];
+        _fmVideoPlayer.delegate = self;
+        
+        [_fmVideoPlayer setUrlString:url];
+        
+        [_fmVideoPlayer.player play];
+        [_fmVideoPlayer showToolView:NO];
+        _fmVideoPlayer.playOrPauseBtn.selected = YES;
+        //解决全屏播放时，点击两次才能退出的问题
+        _fmVideoPlayer.switchOrientationBut.selected = YES;
+        
+        [self presentViewController:self.fullVc animated:NO completion:^{
+            [self.fullVc.view addSubview:self.fmVideoPlayer];
+            _fmVideoPlayer.center = self.fullVc.view.center;
+            
+            [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionLayoutSubviews animations:^{
+                _fmVideoPlayer.frame = self.fullVc.view.bounds;
+                
+            } completion:nil];
+        }];
+
+        
+    } failure:^(NSError *error) {
+        NSLog(@"请求失败:%@",error);
+    }];
 }
 
 - (void)videoplayViewSwitchOrientation:(BOOL)isFull{
@@ -272,22 +234,6 @@
         [self.fullVc dismissViewControllerAnimated:NO completion:^{
         }];
     }
-}
-
-
--(NSString*)dataToJsonString:(id)object
-{
-    NSString *jsonString = nil;
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object
-                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-                                                         error:&error];
-    if (! jsonData) {
-        NSLog(@"Got an error: %@", error);
-    } else {
-        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    }
-    return jsonString;
 }
 
 @end
