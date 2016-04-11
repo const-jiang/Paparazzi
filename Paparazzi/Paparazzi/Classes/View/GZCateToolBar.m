@@ -97,7 +97,7 @@
     params[@"key_id"] = [NSNumber numberWithInteger:self.cate.key_id];
     params[@"operation_type"] = @"0";
     params[@"os"] = @"ios";
-    params[@"userKey"] = @"13A2E4B8-06B2-428F-93CB-BC8F9EA0A065";
+    params[@"userKey"] = UserKey;
     
     NSString *url = @"http://v.sogou.com/app/weiyuedu/add_count_by_keyid/";
     [mgr POST:url parameters:params

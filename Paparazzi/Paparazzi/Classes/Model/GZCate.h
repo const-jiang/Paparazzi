@@ -23,6 +23,8 @@
 @property (nonatomic, assign) NSInteger agree_count;
 @property (nonatomic, assign) NSInteger collect_count;
 
+@property (nonatomic, assign) NSInteger order_id;
+
 @property (nonatomic, assign) NSInteger key_id;
 
 

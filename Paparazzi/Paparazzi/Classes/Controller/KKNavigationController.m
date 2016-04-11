@@ -166,7 +166,8 @@
             [self.view.superview insertSubview:self.backgroundView belowSubview:self.view];
             
             blackMask = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width , frame.size.height)];
-            blackMask.backgroundColor = [UIColor blackColor];
+//            blackMask.backgroundColor = [UIColor blackColor];
+            blackMask.backgroundColor = [UIColor clearColor];
             [self.backgroundView addSubview:blackMask];
         }
         

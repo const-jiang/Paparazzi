@@ -16,9 +16,7 @@
 #import "FMGVideoPlayView.h"
 #import "AFNetworking.h"
 #import "GZWebViewController.h"
-
-
-
+#import "MJRefresh.h"
 
 #define GZNavShowAnimDuration 0.25
 #define GZCoverTag 100
@@ -78,7 +76,9 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playVideo:) name:PlayVideoNotification object:nil];
 
-     [self loadNewDatas];
+    [self loadNewDatas];
+    
+    [self setupRefresh];
 }
 
 -(void)dealloc
@@ -86,22 +86,32 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:PlayVideoNotification object:nil];
 }
 
+- (void)setupRefresh
+{
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewDatas)];
+    self.tableView.header.automaticallyChangeAlpha = YES;
+    
+    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreDatas)];
+}
+
 - (void)loadNewDatas
 {
-    
-    // 1.创建一个请求操作管理者
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     
     //修复"Request failed: unacceptable content-type: text/html" 错误
-    // 声明：不要对服务器返回的数据进行解析，直接返回data即可。(默认返回JSON)
     mgr.responseSerializer = [AFHTTPResponseSerializer serializer];
     
-    // 3.发送一个POST请求
     NSString *url = @"http://v.sogou.com/app/weiyuedu/get_weiyuedu_items/";
-    [mgr POST:url parameters:[self requestParams]
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"cate_id"] = [self cate_id];
+    params[@"order_id"] = @"-1";
+    params[@"os"] = @"ios";
+    params[@"page_size"] = @"100";
+    params[@"userKey"] = UserKey;
+    
+    [mgr POST:url parameters:params
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
                     
-          // 解析服务器返回的JSON数据
           NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
           
           NSArray *cates = [GZCate objectArrayWithKeyValuesArray:dict[@"data_list"]];
@@ -109,26 +119,54 @@
           
           [self.tableView reloadData];
           
-      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+          // 结束刷新
+          [self.tableView.header endRefreshing];
           
-          // 请求失败的时候调用调用这个block
+      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
           NSLog(@"请求失败:%@",error);
+          [self.tableView.header endRefreshing];
       }];
     
 }
 
-- (NSDictionary *)requestParams
+- (void)loadMoreDatas
 {
+    //order_id大于0时，请求比order_id小的数据
+    GZCate *cate = [[self.cateFrames lastObject] cate];
+    NSInteger order_id = cate.order_id;
+    
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    mgr.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    NSString *url = @"http://v.sogou.com/app/weiyuedu/get_weiyuedu_items/";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"cate_id"] = @"16";
-    params[@"order_id"] = @"-1";
+    params[@"cate_id"] = [self cate_id];
+    params[@"order_id"] = [NSNumber numberWithInteger:order_id];
     params[@"os"] = @"ios";
-    params[@"page_size"] = @"100";
-    params[@"userKey"] = @"13A2E4B8-06B2-428F-93CB-BC8F9EA0A065";
-    return params;
+    params[@"page_size"] = @"20";
+    params[@"userKey"] = UserKey;
+    
+    [mgr POST:url parameters:params
+      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+          
+          NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+          
+          NSArray *cates = [GZCate objectArrayWithKeyValuesArray:dict[@"data_list"]];
+          [self.cateFrames addObjectsFromArray:[self cateFramesWithCates:cates]];
+          
+          [self.tableView reloadData];
+          [self.tableView.footer endRefreshing];
+          
+      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+          NSLog(@"请求失败:%@",error);
+          [self.tableView.footer endRefreshing];
+      }];
 }
 
-
+- (NSString *)cate_id
+{
+    return @"16";
+}
 
 /**
  *  将GZCate模型转为GZCateFrame模型
@@ -156,10 +194,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // 获得cell
     GZCateCell *cell = [GZCateCell cellWithTableView:tableView];
     
-    // 给cell传递模型数据
     cell.cateFrame = self.cateFrames[indexPath.row];
     
     return cell;
@@ -220,10 +256,7 @@
     GZCateCell *cell = (GZCateCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     if (cell) {
         NSString *videoURL =  cateFrame.cate.video_url;
-        // 创建一个请求操作管理者
         AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-        
-        // 声明：不要对服务器返回的数据进行解析，直接返回data即可。默认返回JSON
         mgr.responseSerializer = [AFHTTPResponseSerializer serializer];
         
         NSDictionary *jsonDic = @{
