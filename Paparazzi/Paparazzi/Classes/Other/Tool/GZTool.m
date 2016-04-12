@@ -42,7 +42,7 @@
     
     
     
-    NSString *jsonStr = [self DataTOjsonString:jsonDic];
+    NSString *jsonStr = [self JSONObjectTojsonString:jsonDic];
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"data"] = jsonStr;
@@ -117,7 +117,7 @@
                                                @"Vary":@"Accept-Encoding, Accept-Encoding",
                                                @"X-Frame-Options":@"SAMEORIGIN"
                                                };
-                  NSString *header = [self DataTOjsonString:headerDic];
+                  NSString *header = [self JSONObjectTojsonString:headerDic];
                   
                   
                   NSDictionary *jsonDic = @{
@@ -146,7 +146,7 @@
                                                     }
                                             };
                   
-                  NSString *jsonStr = [self DataTOjsonString:jsonDic];
+                  NSString *jsonStr = [self JSONObjectTojsonString:jsonDic];
                   NSMutableDictionary *params = [NSMutableDictionary dictionary];
                   params[@"data"] = jsonStr;
                   NSString *requstURL = @"http://v.sogou.com/playservice/";
@@ -195,12 +195,12 @@
       }];
 }
 
-+ (NSString* )DataTOjsonString:(id)object
++ (NSString* )JSONObjectTojsonString:(NSDictionary *)object
 {
     NSString *jsonString = nil;
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object
-                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                       options:0
                                                          error:&error];
     if (! jsonData) {
         NSLog(@"Got an error: %@", error);

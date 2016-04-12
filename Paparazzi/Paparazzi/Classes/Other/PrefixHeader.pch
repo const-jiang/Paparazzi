@@ -14,9 +14,8 @@
 #import "UIBarButtonItem+Extension.h"
 #import "UIImage+Extension.h"
 
-
-#define GZLeftMenuW 160
-#define GZLeftMenuH 525
+#define GZScreenW [UIScreen mainScreen].bounds.size.width
+#define GZScreenH [UIScreen mainScreen].bounds.size.height
 
 // 颜色
 #define JTColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
@@ -39,10 +38,6 @@
 #define PlayVideoNotification  @"PlayVideoNotification"
 
 #define GZCateToolBarHeight 50
-
-
-#define GZScreenW [UIScreen mainScreen].bounds.size.width
-#define GZScreenH [UIScreen mainScreen].bounds.size.height
 
 
 #define UserKey  @"13A2E4B8-06B2-428F-93CB-BC8F9EA0A065"

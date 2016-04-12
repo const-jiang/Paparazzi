@@ -53,6 +53,7 @@
     [button setImage:[UIImage imageNamed:@"share_0"] forState:UIControlStateNormal];
     button.frame = CGRectMake(buttonX, buttonY, buttonW, buttonH);
     [self.view addSubview: button];
+    [button addTarget:self action:@selector(shareToWechatTimeline) forControlEvents:UIControlEventTouchUpInside];
     
     buttonX = CGRectGetMaxX(button.frame);
     button = [[JTButton alloc] init];
@@ -60,6 +61,7 @@
     [button setImage:[UIImage imageNamed:@"share_1"] forState:UIControlStateNormal];
     button.frame = CGRectMake(buttonX, buttonY, buttonW, buttonH);
     [self.view addSubview: button];
+    [button addTarget:self action:@selector(shareToWechatSession) forControlEvents:UIControlEventTouchUpInside];
     
     buttonX = CGRectGetMaxX(button.frame);
     button = [[JTButton alloc] init];
@@ -67,6 +69,7 @@
     [button setImage:[UIImage imageNamed:@"share_2"] forState:UIControlStateNormal];
     button.frame = CGRectMake(buttonX, buttonY, buttonW, buttonH);
     [self.view addSubview: button];
+    [button addTarget:self action:@selector(shareToQQ) forControlEvents:UIControlEventTouchUpInside];
     
     
     UIButton *cancelButton = [[UIButton alloc] init];
@@ -121,6 +124,21 @@
         [self.view removeFromSuperview];
         [self.cover removeFromSuperview];
     }];
+}
+
+- (void)shareToWechatTimeline
+{
+    //分享到微信朋友圈
+}
+
+- (void)shareToWechatSession
+{
+    //分享给微信好友
+}
+
+- (void)shareToQQ
+{
+    //分享给好友
 }
 
 

@@ -54,10 +54,6 @@
 
        // menu.delegate的设置需在addChildViewController之后，否则会引起数组越界错误
     GZLeftMenu *menu = [[GZLeftMenu alloc] init];
-    menu.x = 30;
-    menu.y = 60;
-    menu.width = GZLeftMenuW;
-    menu.height = GZLeftMenuH;
     menu.delegate = self;
     [self.view insertSubview:menu atIndex:1];
     
