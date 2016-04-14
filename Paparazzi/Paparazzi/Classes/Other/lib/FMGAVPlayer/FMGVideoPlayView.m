@@ -105,8 +105,8 @@
     self.playOrPauseBtn.selected = NO;
     
     [self showToolView:YES];
-    [self setupDanmakuView];
-    [self setupDanmakuData];
+//    [self setupDanmakuView];
+//    [self setupDanmakuData];
     
 }
 

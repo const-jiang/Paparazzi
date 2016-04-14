@@ -364,8 +364,7 @@ static NSTimeInterval const timeMargin = 0.5;
 }
 
 - (void)start
-{
-    
+{    
     if(_isPauseing) [self resume];
     
     if ([self isPrepared]) {

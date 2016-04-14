@@ -302,10 +302,16 @@
             ios8中，在全屏播放视频的情况下，旋转屏幕会提前加载GZLengzishiViewController、GZVideoViewController等控制器的view，而此时ScreenW和ScreenH为被旋转后屏幕的宽和高。因此在计算GZCateCell宽度时，需要比较ScreenW和ScreenH的值，选择小的作为GZCateCell的宽度
            */
           
-          // ios8中会出现这种情况
+          // ios8中会出现下面这种情况,此时需要对屏幕进行强制旋转
           if (self.interfaceOrientation != UIInterfaceOrientationPortrait) {
+              
               [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIDeviceOrientationPortrait] forKey:@"orientation"];
               
+              /*
+               对rootViewController的interfaceOrientation进行赋值，rootViewController的子控制器的interfaceOrientation都会改变
+               
+               如果只对self.navigationController的interfaceOrientation进行赋值，self.navigationController.interfaceOrientation、self.interfaceOrientation 并不会改变
+               */
               [[[[UIApplication sharedApplication] keyWindow] rootViewController] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationPortrait] forKey:@"interfaceOrientation"];
           }
 
