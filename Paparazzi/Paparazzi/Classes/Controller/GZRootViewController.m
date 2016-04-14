@@ -285,7 +285,7 @@
 }
 
 - (void)videoplayViewSwitchOrientation:(BOOL)isFull{
-    if (isFull) { //me: 全屏
+    if (isFull) { //全屏
         [self presentViewController:self.fullVc animated:NO completion:^{
             [self.fullVc.view addSubview:self.fmVideoPlayer];
             _fmVideoPlayer.center = self.fullVc.view.center;
@@ -295,17 +295,37 @@
                 
             } completion:nil];
         }];
-    } else { //me: 退出全屏
+        
+      } else { // 退出全屏
+          
+          /*
+            ios8中，在全屏播放视频的情况下，旋转屏幕会提前加载GZLengzishiViewController、GZVideoViewController等控制器的view，而此时ScreenW和ScreenH为被旋转后屏幕的宽和高。因此在计算GZCateCell宽度时，需要比较ScreenW和ScreenH的值，选择小的作为GZCateCell的宽度
+           */
+          
+          // ios8中会出现这种情况
+          if (self.interfaceOrientation != UIInterfaceOrientationPortrait) {
+              [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIDeviceOrientationPortrait] forKey:@"orientation"];
+              
+              [[[[UIApplication sharedApplication] keyWindow] rootViewController] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationPortrait] forKey:@"interfaceOrientation"];
+          }
+
         [self.fullVc dismissViewControllerAnimated:NO completion:^{
-            
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_fmVideoPlayer.index inSection:0];
             GZCateCell *cell = (GZCateCell *)[self.tableView cellForRowAtIndexPath:indexPath];
             [cell.contentView addSubview:_fmVideoPlayer];
             _fmVideoPlayer.frame = cell.cateFrame.videoViewF;
             
+//             NSLog(@"--[UIScreen mainScreen].bounds:%@",NSStringFromCGRect([UIScreen mainScreen].bounds));
+//
+//            NSLog(@"self.interfaceOrientation:%ld",self.interfaceOrientation);
+//            NSLog(@"self.navigationController.interfaceOrientation:%ld",self.navigationController.interfaceOrientation);
+//             UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
+//            NSLog(@"keyWindow.rootViewController.interfaceOrientation:%ld",keyWindow.rootViewController.interfaceOrientation);
+//            
+//            NSLog(@"UIDevice.orientation:%ld",[[UIDevice currentDevice] orientation]);
+            
         }];
     }
-    
 }
 
 #pragma mark -实现抽屉效果

@@ -24,8 +24,10 @@
 {
     _cate = cate;
     
-    // cell的宽度
-    CGFloat cellW = [UIScreen mainScreen].bounds.size.width;
+    /*
+     ios8中，在全屏播放视频的情况下，旋转屏幕会提前加载GZLengzishiViewController、GZVideoViewController等控制器的view，而此时ScreenW和ScreenH为被旋转后屏幕的宽和高。因此在计算GZCateCell宽度时，需要比较ScreenW和ScreenH的值，选择小的作为GZCateCell的宽度
+     */
+    CGFloat cellW = (GZScreenW < GZScreenH)? GZScreenW : GZScreenH;
     
     //cate_infoLabel
     CGSize cate_infoLabelSize = [self sizeWithSting:cate.cate_info.name Font:GZCateCellCateInfoFont maxW:MAXFLOAT];

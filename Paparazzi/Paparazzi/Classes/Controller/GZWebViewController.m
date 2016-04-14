@@ -231,6 +231,13 @@
         [_fmVideoPlayer removeFromSuperview];
         _fmVideoPlayer = nil;
         
+        // ios8中会出现这种情况
+        if (self.interfaceOrientation != UIInterfaceOrientationPortrait) {
+            [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIDeviceOrientationPortrait] forKey:@"orientation"];
+            
+            [[[[UIApplication sharedApplication] keyWindow] rootViewController] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationPortrait] forKey:@"interfaceOrientation"];
+        }
+        
         [self.fullVc dismissViewControllerAnimated:NO completion:^{
         }];
     }

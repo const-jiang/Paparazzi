@@ -30,7 +30,7 @@
     return UIInterfaceOrientationMaskLandscape;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+- (BOOL)shouldAutorotate
 {
     return YES;
 }

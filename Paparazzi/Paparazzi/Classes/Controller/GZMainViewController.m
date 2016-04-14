@@ -83,7 +83,12 @@
     GZRootViewController *rootViewController = (GZRootViewController *)newNav.topViewController;
     [rootViewController coverClick];
     
+}
 
+// 不支持屏幕旋转
+- (BOOL)shouldAutorotate
+{
+    return NO;
 }
 
 @end
