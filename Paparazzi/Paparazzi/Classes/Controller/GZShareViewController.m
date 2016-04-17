@@ -145,9 +145,18 @@
 #pragma mark - 单例模式
 static id _instance;
 
-+ (id)allocWithZone:(struct _NSZone *)zone
-{
+- (instancetype)init{
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _instance = [super init];
+    });
+    
+    return _instance;
+}
 
++ (instancetype)allocWithZone:(struct _NSZone *)zone
+{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _instance = [super allocWithZone:zone];
@@ -166,9 +175,5 @@ static id _instance;
     return _instance;
 }
 
-+ (id)copyWithZone:(struct _NSZone *)zone
-{
-    return _instance;
-}
 
 @end

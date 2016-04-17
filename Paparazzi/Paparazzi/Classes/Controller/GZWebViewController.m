@@ -100,9 +100,6 @@
 }
 
 
-/**
- 当webView发送一个请求之前都会调用这个方法, 返回YES, 可以加载这个请求, 返回NO, 代表禁止加载这个请求
- */
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
 #warning 当没有这个代理方法时，webView加载的网页中很多时候没有图片，为什么会出现这种现象？？？？

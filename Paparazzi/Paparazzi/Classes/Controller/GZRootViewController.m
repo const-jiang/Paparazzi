@@ -26,7 +26,6 @@
 
 @property (nonatomic, strong) NSMutableArray *cateFrames;
 
-#warning 用strong 会不会存在内存泄露？？
 @property (nonatomic, strong) FMGVideoPlayView * fmVideoPlayer; // 播放器
 /* 全屏控制器 */
 @property (nonatomic, strong) FullViewController *fullVc;
@@ -120,7 +119,6 @@
           
           [self.tableView reloadData];
           
-          // 结束刷新
           [self.tableView.header endRefreshing];
           
       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -346,25 +344,20 @@
         
         UIView *navView = self.navigationController.view;
         
-        // 缩放比例
         CGFloat navH = [UIScreen mainScreen].bounds.size.height - 2 * 60;
         CGFloat scale = navH / [UIScreen mainScreen].bounds.size.height;
         
-        // 菜单左边的间距
         CGFloat leftMenuMargin = [UIScreen mainScreen].bounds.size.width * (1 - scale) * 0.5;
         CGFloat translateX = 230 - leftMenuMargin;
         
         CGFloat topMargin = [UIScreen mainScreen].bounds.size.height * (1 - scale) * 0.5;
         CGFloat translateY = topMargin - 60;
         
-        // 缩放
         CGAffineTransform scaleForm = CGAffineTransformMakeScale(scale, scale);
-        // 平移
         CGAffineTransform translateForm = CGAffineTransformTranslate(scaleForm, translateX / scale, -translateY / scale);
        
         navView.transform = translateForm;
         
-        // 添加遮盖
         UIView *cover = [[UIView alloc] init];
         cover.tag = GZCoverTag;
         cover.frame = navView.bounds;
@@ -395,8 +388,6 @@
 
 - (void)coverClick
 {
-    // 遮盖的view可能不存在
-    //    NSLog(@"-- coverClick %@",[self.navigationController.view viewWithTag:HMCoverTag]);
     [self coverClick:[self.navigationController.view viewWithTag:GZCoverTag]];
 }
 

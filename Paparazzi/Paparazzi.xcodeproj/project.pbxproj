@@ -8,12 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		C7A713221CB7BD490048FE1A /* KKNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A713211CB7BD490048FE1A /* KKNavigationController.m */; };
+		C7A763CD1CC3AAE7007FF561 /* INDGIFPreviewDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A763CC1CC3AAE7007FF561 /* INDGIFPreviewDownloader.m */; };
 		C7A7650C1CBA0A0800899166 /* GZShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7650B1CBA0A0800899166 /* GZShareViewController.m */; };
 		C7A7650F1CBA0BDE00899166 /* JTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7650E1CBA0BDE00899166 /* JTButton.m */; };
 		C7A7949A1CBF4DE500B6D744 /* danmakufile in Resources */ = {isa = PBXBuildFile; fileRef = C7A794991CBF4DE500B6D744 /* danmakufile */; };
-		C7A7D8181CACC8AA000507E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A7D8161CACC8AA000507E1 /* Main.storyboard */; };
 		C7A7D81A1CACC8AA000507E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A7D8191CACC8AA000507E1 /* Images.xcassets */; };
-		C7A7D81D1CACC8AA000507E1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A7D81B1CACC8AA000507E1 /* LaunchScreen.xib */; };
 		C7A7D8291CACC8AA000507E1 /* PaparazziTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7D8281CACC8AA000507E1 /* PaparazziTests.m */; };
 		C7A7D83C1CACCC32000507E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7D8381CACCC32000507E1 /* AppDelegate.m */; };
 		C7A7D83E1CACCC32000507E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A7D83B1CACCC32000507E1 /* main.m */; };
@@ -130,6 +129,8 @@
 /* Begin PBXFileReference section */
 		C7A713201CB7BD490048FE1A /* KKNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKNavigationController.h; sourceTree = "<group>"; };
 		C7A713211CB7BD490048FE1A /* KKNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKNavigationController.m; sourceTree = "<group>"; };
+		C7A763CB1CC3AAE7007FF561 /* INDGIFPreviewDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INDGIFPreviewDownloader.h; sourceTree = "<group>"; };
+		C7A763CC1CC3AAE7007FF561 /* INDGIFPreviewDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INDGIFPreviewDownloader.m; sourceTree = "<group>"; };
 		C7A7650A1CBA0A0800899166 /* GZShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZShareViewController.h; sourceTree = "<group>"; };
 		C7A7650B1CBA0A0800899166 /* GZShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZShareViewController.m; sourceTree = "<group>"; };
 		C7A7650D1CBA0BDE00899166 /* JTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTButton.h; sourceTree = "<group>"; };
@@ -137,9 +138,7 @@
 		C7A794991CBF4DE500B6D744 /* danmakufile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = danmakufile; sourceTree = "<group>"; };
 		C7A7D8091CACC8AA000507E1 /* Paparazzi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paparazzi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A7D80D1CACC8AA000507E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C7A7D8171CACC8AA000507E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C7A7D8191CACC8AA000507E1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C7A7D81C1CACC8AA000507E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C7A7D8221CACC8AA000507E1 /* PaparazziTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaparazziTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A7D8271CACC8AA000507E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7A7D8281CACC8AA000507E1 /* PaparazziTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaparazziTests.m; sourceTree = "<group>"; };
@@ -383,9 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				C7A7D8351CACCC32000507E1 /* Classes */,
-				C7A7D8161CACC8AA000507E1 /* Main.storyboard */,
 				C7A7D8191CACC8AA000507E1 /* Images.xcassets */,
-				C7A7D81B1CACC8AA000507E1 /* LaunchScreen.xib */,
 				C7A7D80C1CACC8AA000507E1 /* Supporting Files */,
 			);
 			path = Paparazzi;
@@ -817,6 +814,8 @@
 			children = (
 				C7AACE4C1CBB61A500D5322A /* GZTool.h */,
 				C7AACE4D1CBB61A500D5322A /* GZTool.m */,
+				C7A763CB1CC3AAE7007FF561 /* INDGIFPreviewDownloader.h */,
+				C7A763CC1CC3AAE7007FF561 /* INDGIFPreviewDownloader.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -902,8 +901,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7A7E5BF1CAD1DC8009B5FB3 /* FMGAVPlayer.bundle in Resources */,
-				C7A7D8181CACC8AA000507E1 /* Main.storyboard in Resources */,
-				C7A7D81D1CACC8AA000507E1 /* LaunchScreen.xib in Resources */,
 				C7A7E3A71CBAA6D9004F9A98 /* LICENSE in Resources */,
 				C7A7E5AE1CAD1DC8009B5FB3 /* LICENSE in Resources */,
 				C7A7D81A1CACC8AA000507E1 /* Images.xcassets in Resources */,
@@ -954,6 +951,7 @@
 				C7A7E5D11CAD1DC8009B5FB3 /* SDWebImageCompat.m in Sources */,
 				C7A7E5B41CAD1DC8009B5FB3 /* UIImageView+AFNetworking.m in Sources */,
 				C7AACE4E1CBB61A500D5322A /* GZTool.m in Sources */,
+				C7A763CD1CC3AAE7007FF561 /* INDGIFPreviewDownloader.m in Sources */,
 				C7A7E5DC1CAD1DC8009B5FB3 /* UIView+WebCacheOperation.m in Sources */,
 				C7A7E3B41CBAA6D9004F9A98 /* MJRefreshNormalHeader.m in Sources */,
 				C7A7E5071CAD0727009B5FB3 /* GZGaoxiaoViewController.m in Sources */,
@@ -1045,25 +1043,6 @@
 			targetProxy = C7A7D8231CACC8AA000507E1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		C7A7D8161CACC8AA000507E1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C7A7D8171CACC8AA000507E1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		C7A7D81B1CACC8AA000507E1 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C7A7D81C1CACC8AA000507E1 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C7A7D82A1CACC8AA000507E1 /* Debug */ = {

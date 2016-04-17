@@ -50,10 +50,6 @@
     return cell;
 }
 
-/**
- *  cell的初始化方法，一个cell只会调用一次
- *  一般在这里添加所有可能显示的子控件，以及子控件的一次性设置
- */
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

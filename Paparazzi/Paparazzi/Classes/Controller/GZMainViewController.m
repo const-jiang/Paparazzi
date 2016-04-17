@@ -27,7 +27,7 @@
     
     UINavigationBar *appearance = [UINavigationBar appearance];
     
-    //    [appearance setBackgroundColor:GZThemeColor];
+//    [appearance setBackgroundColor:GZThemeColor];
     [appearance setBackgroundImage:[UIImage imageWithColor:GZThemeColor] forBarMetrics:UIBarMetricsDefault];
 
     
@@ -52,34 +52,29 @@
     vc = [[GZQiwenViewController alloc] init];
     [self addChildViewController:[[KKNavigationController alloc] initWithRootViewController:vc]];
 
-       // menu.delegate的设置需在addChildViewController之后，否则会引起数组越界错误
-    GZLeftMenu *menu = [[GZLeftMenu alloc] init];
-    menu.delegate = self;
-    [self.view insertSubview:menu atIndex:1];
     
+    GZLeftMenu *menu = [[GZLeftMenu alloc] init];
+   [self.view insertSubview:menu atIndex:0];
+    
+    // menu.delegate的设置需在addChildViewController之后，否则会引起数组越界错误
+    menu.delegate = self;
 }
 
 
 - (void)leftMenu:(GZLeftMenu *)menu didSelectedButtonFromIndex:(int)fromIndex toIndex:(int)toIndex
 {
-//    NSLog(@"fromIndex:%d  toIndex:%d",fromIndex,toIndex);
     
-    // 移除旧控制器的view
     UINavigationController *oldNav = self.childViewControllers[fromIndex];
     [oldNav.view removeFromSuperview];
     
-    // 显示新控制器的view
     UINavigationController *newNav = self.childViewControllers[toIndex];
     [self.view addSubview:newNav.view];
     
-    // 设置新控制的transform跟旧控制器一样
     newNav.view.transform = oldNav.view.transform;
-    // 设置阴影
     newNav.view.layer.shadowColor = [UIColor blackColor].CGColor;
     newNav.view.layer.shadowOffset = CGSizeMake(-4, -4);
     newNav.view.layer.shadowOpacity = 0.2;
     
-    // 点击遮盖
     GZRootViewController *rootViewController = (GZRootViewController *)newNav.topViewController;
     [rootViewController coverClick];
     

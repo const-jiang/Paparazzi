@@ -14,12 +14,13 @@
 #import "UIImageView+WebCache.h"
 
 #import "DACircularProgressView.h"
+#import "INDGIFPreviewDownloader.h"
 
 @interface GZCatePictureView()
 
 /** gif标识 */
 @property (weak, nonatomic) UIImageView *gifView;
-/** 查看大图按钮 */
+/** 查看全图按钮 */
 @property (weak, nonatomic) UIButton *seeBigButton;
 /** 进度条控件 */
 @property (weak, nonatomic) DACircularProgressView *progressView;
@@ -73,8 +74,10 @@
         [self addSubview:progressLabel];
         self.progressLabel = progressLabel;
         
+        self.backgroundColor = [UIColor whiteColor];
         
-        self.backgroundColor = [UIColor grayColor];
+        self.progressView.hidden = YES;
+        self.progressLabel.hidden = YES;
         
     }
     
@@ -112,35 +115,45 @@
 {
     _cateFrame = cateFrame;
     
-     [self.progressView setProgress:0.f animated:YES];
+    [self.progressView setProgress:0.f animated:YES];
     
-    // 设置图片
-    [self sd_setImageWithURL:[NSURL URLWithString:cateFrame.cate.pic.small_url] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    BOOL isGif = cateFrame.cate.pic.is_gif;
+    __block BOOL hasGIFPreview = NO;
+    
+    NSURL *url = [NSURL URLWithString:cateFrame.cate.pic.small_url];
+    [self sd_setImageWithURL:url placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         
-        self.progressView.hidden = NO;
-        self.progressLabel.hidden = NO;
+        if (isGif && hasGIFPreview == NO) {
+            //下载gif图片的预览图
+            hasGIFPreview = YES;
+            INDGIFPreviewDownloader *downloader = [[INDGIFPreviewDownloader alloc] initWithURLSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+            [downloader downloadGIFPreviewFrameAtURL:url completionQueue:dispatch_get_main_queue() completionHandler:^(UIImage *image, NSError *error) {
+                self.image = image;
+            }];
+        }
         
-        // 显示进度值
-        [self.progressView setProgress:1.0 * receivedSize / expectedSize animated:YES];
-        
+       //如果是gif图片,显示下载进度
+        if (isGif) {
+            dispatch_async( dispatch_get_main_queue(), ^{
+                self.progressView.hidden = NO;
+                self.progressLabel.hidden = NO;
+                [self.progressView setProgress:1.0 * receivedSize / expectedSize animated:YES];
+            });
+        }
+  
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         self.progressView.hidden = YES;
         self.progressLabel.hidden = YES;
         
-        // 如果是大图片, 才需要进行绘图处理
         if (cateFrame.isBigPicture ){
-            // 开启图形上下文
             UIGraphicsBeginImageContextWithOptions(cateFrame.picViewF.size, YES, 0.0);
             
-            // 将下载完的image对象绘制到图形上下文
             CGFloat width = cateFrame.picViewF.size.width;
             CGFloat height = width * image.size.height / image.size.width;
             [image drawInRect:CGRectMake(0, 0, width, height)];
             
-            // 获得图片
             self.image = UIGraphicsGetImageFromCurrentImageContext();
             
-            // 结束图形上下文
             UIGraphicsEndImageContext();
         }
         
@@ -156,7 +169,6 @@
  
     }];
     
-    // 判断是否为gif
     self.gifView.hidden = !cateFrame.cate.pic.is_gif;
   
 }

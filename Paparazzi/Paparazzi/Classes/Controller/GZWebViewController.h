@@ -10,9 +10,6 @@
 
 @interface GZWebViewController : UIViewController
 
-//看看是否需要用单例模式
-//+ (instancetype)shareWebViewController;
-
 @property (nonatomic,strong) NSString *url;
 
 @end
